@@ -33,26 +33,44 @@ netstat -ltnup | grep 'IP:PORT'
 
 ## Comandos aleatorios:
 history: mostra o histórico de comandos executados pelo usuário atual;
+
 sudo: concede permissão de SU para execução de determinado comando;
+
 mysqldump: cria uma cópia do banco de dados mysql (requer parâmetros adicionais - pesquisar);
+
 scp -p USUARIO@SERVER:/DIRETÓRIO_ORIGEM/ /DIRETÓRIO_DESTINO/ : copia arquivos de um servidor para a máquina local -> -r para recursivo, -p para manter aspecto padrão;
+
 scp -p /DIRETÓRIO_ORIGEM/ USUARIO@SERVER:/DIRETÓRIO_DESTINO/: copia arquivos da máquina local para um servidor -> -r para recursivo, -p para manter aspecto padrão;
+
 curl DOMÍNIO: executa o navegador;
+
 nano ARQUIVO: editor de texto;
+
 sl -la: exibe as permissões detalhadas dos arquivos;
+
 chmod: altera as permissões de leitura escrita e execução;
+
 chown: altera o dono do diretório/arquivo;
+
 chgrp: altera o grupo do diretório/arquivo;
+
 reboot -h now: reinicia o servidor encerrando os processos antes (evita problemas de inicialização);
+
 pwd: mostra o diretório atual
 iptables -L --line-numbers: lista as permissões de firewall ativas;
+
 nano /etc/sysconfig/iptables: edita as configurações padrão de iptables (carrega todo boot ou quando usado o iptables-restore);
+
 iptables-restore < /etc/sysconfig/iptables
 https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands - > mais comandos de iptables
 CUIDADO: iptables -D INPUT 5: apaga a linha 5 do line-numbers;
+
 ps -eaf: lista todos os serviços em execução;
+
 df -h: exibe os discos montados;
+
 du -sh <directory>: disk usage - mostra o tamanho do diretório;
+
 du -h -d1 <directory> : mostra o tamanho das subpastas do primeiro nível do diretório selecionado 
 fdisk -l: mostra as partições montadas com info do S. O.
 awk -F':' '{ print $1}' /etc/passwd: mostra todos os usuários registrados no S. O.
@@ -60,11 +78,14 @@ passwd <username>: muda a senha de um <username>
 runuser -l  userNameHere -c 'command’: run commands as another user
 tail -f <ARQUIVO>: Visualização de arquivo em tempo real
 adb devices: mostra os dispositivos conectados ao computador;
+
 find . -name testfile.txt - Busca arquivo
 grep -rnw . -e "texto" - find all files containing specific text on Linux
 hostnamectl: exibe as informações do sistema operacional;
+
 sestatus: exibe o status do selinux (firewall do CentOS Distr Red)
 crontab -l: exibe os agendamentos registrados no sistema;
+
 netstat -tulpn: checar quem está usando as portas do sistema
  _________________________________________________________________________
 ## Checagem de Memória e Processos
