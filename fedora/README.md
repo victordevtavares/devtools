@@ -11,6 +11,8 @@ nmcli dev wifi -> show available wifis
 
 nmcli dev wifi connect WIFI_NAME password WIFI_PASSWORD
 
+iwgetid -r -> show connected wifi
+
 ## Change locale of keyboard:
 
 localectl --no-convert set-x11-keymap XXX 

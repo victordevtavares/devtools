@@ -60,9 +60,15 @@
 
         1. restart the daemon and the docker.service with ***systemctl daemon-reload && systemctl restart docker.service***
 
-1. ***
 
-1. ***
+
+
+
+????/
+
+1. /etc/selinux/config -> SELINUX=enforcing to SELINUX=disabled
+
+1. /var/lib/kubelet/config.yaml -> cgroupDriver: cgroupfs
 
 1. ***
 
