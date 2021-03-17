@@ -11,7 +11,19 @@ nmcli dev wifi -> show available wifis
 
 nmcli dev wifi connect WIFI_NAME password WIFI_PASSWORD
 
-iwgetid -r -> show connected wifi
+nmcli d -> show connected wifi
+
+nmcli con down WIFI_NAME -> desconectar wifi
+
+# Controle de Monitor
+
+xrandr --listactivemonitors
+
+xrandr --output eDP-1 --brightness 0.7
+
+## VPN:
+
+sudo openvpn --config client.ovpn
 
 ## Change locale of keyboard:
 
@@ -110,13 +122,13 @@ netstat -tulpn: checar quem está usando as portas do sistema
  _________________________________________________________________________
 ## Checagem de Memória e Processos
 
-“top”: check memory and cpu usage per process
+top -> check memory and cpu usage per process
 
-“htop”: shows memory usage along with various other details
+htop -> shows memory usage along with various other details
 
-“free - m”: show a short resume of used/free memory
+free - m -> show a short resume of used/free memory
 
-“vmstat -s”: lays out the memory usage statistics 
+vmstat -s -> lays out the memory usage statistics 
  _________________________________________________________________________
 ## RSYNC
 Sintaxe básica:
