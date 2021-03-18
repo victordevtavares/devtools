@@ -27,10 +27,16 @@ sudo openvpn --config client.ovpn
 
 ## Change locale of keyboard:
 
-localectl --no-convert set-x11-keymap XXX 
-    -> where XXX can be: 
-        us
-        br 
+sudo setxkbmap -model abnt2 -layout br
+
+sudo setxkbmap -layout us
+
+    another option:
+
+        localectl --no-convert set-x11-keymap XXX 
+            -> where XXX can be: 
+                us
+                br 
 
 ## Reset locked user centos
 
