@@ -27,11 +27,11 @@ sudo openvpn --config client.ovpn
 
 ## Change locale of keyboard:
 
-sudo setxkbmap -model abnt2 -layout br
+	sudo setxkbmap -model abnt2 -layout br
 
-sudo setxkbmap -layout us
+	sudo setxkbmap -layout us
 
-    another option:
+another option:
 
         localectl --no-convert set-x11-keymap XXX 
             -> where XXX can be: 
