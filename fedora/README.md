@@ -21,6 +21,8 @@ xrandr --listactivemonitors
 
 xrandr --output eDP-1 --brightness 0.7
 
+xrandr --output DP-3 --brightness 0.7
+
 ## VPN:
 
     sudo openvpn --config /home/me/Documents/support_files/client.ovpn --auth-user-pass /home/me/Documents/support_files/vpn.txt
@@ -37,6 +39,19 @@ another option:
         -> where XXX can be: 
            us
            br 
+
+
+## Telinha bonitinha:
+
+    dnf install tint2
+
+    git clone https://github.com/addy-dclxvi/tint2-theme-collections ~/.config/tint2 --depth 1
+
+    tint2 -c ~/.config/tint2/livia/livia.tint2rc &
+
+## Configurar inicializacao de apps/scripts:
+
+    ~/.config/autostart
 
 ## Reset locked user centos
 
