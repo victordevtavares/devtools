@@ -15,6 +15,8 @@ nmcli d -> show connected wifi
 
 nmcli con down WIFI_NAME -> desconectar wifi
 
+sudo nmcli con mod System\ eth0 ipv4.dns "8.8.8.8 8.8.4.4" -> alterar DNS para o Google
+
 # Controle de Monitor
 
 xrandr --listactivemonitors
