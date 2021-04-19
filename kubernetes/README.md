@@ -1,78 +1,26 @@
 # Kubernetes
 
-1. On that script, we'll have 3 VMs running the kubernetes service. You must grant that the VMs are seeing each other and comunicating to internet, also.
+## Useful commands:
 
-    1. You may set the VirtualBox connection on VMs to Bridge and set your VMs OS to the same gateway and IP range.
+   ***kubectl get nodes***
 
-    1. /etc/sysconfig/network-scripts/ifcfg-enp0s3
+   ***kubectl run nginx --image***
 
-        <code>
-            NM_CONTROLLED="yes"
-            DEVICE="enp0s3"
-            BOOTPROTO=static
-            ONBOOT="yes"
-            IPADDR=192.168.1.254
-            NETMASK=255.255.255.0
-            GATEWAY=192.168.1.255
-            DNS1=8.8.8.8
-        </code>
+   ***kubectl get deployment***
 
-1. Update your repositories with ***dnf update*** or any other repo manager you're using;
+   ***kubectl get pods***
 
-1. Install the following packages: kubectl, minikube, kubeadm e kubelet (prefer not install using snap):
-    - https://kubernetes.io/docs/tasks/tools/
+------
 
-1. dnf install docker socat conntrack ebtables ipset -y
+## On that script, we'll have 3 VMs running ubuntu running the kubernetes service. You must grant that the VMs are seeing each other and comunicating to internet, also:
 
-1. systemctl enable docker.service
+    https://phoenixnap.com/kb/install-kubernetes-on-ubuntu
 
-1. systemctl enable kubelet.service
+    *Atention: you have to add the parameter ***--apiserver-advertise-address <MASTER-IP>*** with an IP that all VMs are able to see on the ***kubeadm init*** command.
+    
+-------
 
-1. Desativar swap:
-
-    1. ***swapon -a*** to show active swaps
-
-    1. ***systemctl mask dev-zram0.swap*** replacing the dev-zram0 with the name of your swap file
-
-    1. reboot
-
-1. Initialize your kube host: ***kubeadm init --apiserver-advertise-address MASTER_IP***
-
-    1. If you have to init again the kube, run ***kubeadm reset*** in order to fix it
-
-    1. If you're having the cgroups problem, add to the file ***/etc/systemd/system/kubelet.service.d/11-cgroups.conf*** the following:
-
-        <code>
-            [Service]
-            CPUAccounting=true
-            MemoryAccounting=true
-        </code>
-
-        1. restart with ***systemctl daemon-reload && systemctl restart kubelet***
-
-    1. If you're having the Docker daemon communication problem, add/create the file ***/etc/systemd/system/docker.service.d/hosts.conf*** and add it:
-
-        <code>
-           [Service]
-            ExecStart=
-            ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2736 
-        </code>
-
-        1. restart the daemon and the docker.service with ***systemctl daemon-reload && systemctl restart docker.service***
-
-OBS: This install in fedora is not finished! Lets finish it later!
-
-????/
-
-1. /etc/selinux/config -> SELINUX=enforcing to SELINUX=disabled
-
-1. /var/lib/kubelet/config.yaml -> cgroupDriver: cgroupfs
-
-
-
-
-1. On the next script, we'll deploy a cluster on Google Cloud Platform using GCP features:
-
+## On the next script, we'll deploy a cluster on Google Cloud Platform using GCP features:
 
 Task 2: Confirm that needed APIs are enabled
 Make a note of the name of your GCP project. This value is shown in the top bar of the Google Cloud Platform Console. It will be of the form qwiklabs-gcp- followed by hexadecimal numbers.
@@ -177,10 +125,3 @@ Return to the web browser tab in which you viewed your cluster's external IP add
 
 
 
-1. ***kubectl get nodes***
-
-1. ***kubectl run nginx --image***
-
-1. ***kubectl get deployment***
-
-1. ***kubectl get pods***
